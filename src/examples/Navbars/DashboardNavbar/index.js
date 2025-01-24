@@ -27,10 +27,12 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
+import { Button } from "@mui/material";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDInput from "components/MDInput";
+import MDButton from "components/MDButton";
 
 // Material Dashboard 2 React example components
 import Breadcrumbs from "examples/Breadcrumbs";
@@ -135,9 +137,20 @@ function DashboardNavbar({ absolute, light, isMini }) {
         </MDBox>
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
+            {/* Search Bar */}
             <MDBox pr={1}>
-              <MDInput label="Search here" />
+              <MDInput label="Search for Tenents" />
             </MDBox>
+            {/* Add Tenents */}
+            <MDBox p={2} mt="auto">
+              <Link to="#">
+                <Button variant="contained" style={{ color: "white" }}>
+                  Add Tenents
+                </Button>
+              </Link>
+            </MDBox>
+
+            {/* Other widgets */}
             <MDBox color={light ? "white" : "inherit"}>
               <Link to="/authentication/sign-in/basic">
                 <IconButton sx={navbarIconButton} size="small" disableRipple>

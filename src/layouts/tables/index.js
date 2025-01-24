@@ -28,12 +28,12 @@ import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import authorsTableData from "layouts/tables/data/authorsTableData";
+import tenentTableData from "layouts/tables/data/tenentsTableData";
 import projectsTableData from "layouts/tables/data/projectsTableData";
 
 function Tables() {
-  const { columns, rows } = authorsTableData();
-  const { columns: pColumns, rows: pRows } = projectsTableData();
+  const { columns, rows } = tenentTableData();
+  // const { columns: pColumns, rows: pRows } = projectsTableData();
 
   return (
     <DashboardLayout>
@@ -53,7 +53,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Authors Table
+                  Tenents Table
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
@@ -67,7 +67,17 @@ function Tables() {
               </MDBox>
             </Card>
           </Grid>
-          <Grid item xs={12}>
+        </Grid>
+      </MDBox>
+      <Footer />
+    </DashboardLayout>
+  );
+}
+
+export default Tables;
+
+{
+  /* <Grid item xs={12}>
             <Card>
               <MDBox
                 mx={2}
@@ -93,12 +103,5 @@ function Tables() {
                 />
               </MDBox>
             </Card>
-          </Grid>
-        </Grid>
-      </MDBox>
-      <Footer />
-    </DashboardLayout>
-  );
+          </Grid> */
 }
-
-export default Tables;
