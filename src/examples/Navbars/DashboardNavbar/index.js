@@ -32,7 +32,6 @@ import { Button } from "@mui/material";
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDInput from "components/MDInput";
-import MDButton from "components/MDButton";
 
 // Material Dashboard 2 React example components
 import Breadcrumbs from "examples/Breadcrumbs";
@@ -139,13 +138,13 @@ function DashboardNavbar({ absolute, light, isMini }) {
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
             {/* Search Bar */}
             <MDBox pr={1}>
-              <MDInput label="Search for Tenents" />
+              <MDInput label="Search for Tenant" />
             </MDBox>
-            {/* Add Tenents */}
+            {/* Add tenant */}
             <MDBox p={2} mt="auto">
               <Link to="#">
                 <Button variant="contained" style={{ color: "white" }}>
-                  Add Tenents
+                  Add Tenant
                 </Button>
               </Link>
             </MDBox>
