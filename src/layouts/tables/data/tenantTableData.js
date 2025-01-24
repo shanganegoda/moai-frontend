@@ -31,9 +31,9 @@ import NotificationItem from "examples/Items/NotificationItem";
 import { useState } from "react";
 
 export default function data() {
-  const [isOpenActionsMenu, isSetActionsMenu] = useState(false);
-  const handleActionsMenuOpen = (event) => isSetActionsMenu(event.currentTarget);
-  const handleActionsMenu = () => isSetActionsMenu(false);
+  const [isActionsMenuOpen, setIsActionsMenuOpen] = useState(false);
+  const handleActionsMenuOpen = (event) => setIsActionsMenuOpen(event.currentTarget);
+  const handleActionsMenu = () => setIsActionsMenuOpen(false);
 
   const Tenant = ({ image, name, email }) => (
     <MDBox display="flex" alignItems="center" lineHeight={1}>
@@ -50,12 +50,12 @@ export default function data() {
   // Render the actions menu
   const renderActionsMenu = () => (
     <Menu
-      anchorEl={isOpenActionsMenu}
+      anchorEl={isActionsMenuOpen}
       anchorReference={null}
       anchorOrigin={{
         vertical: "bottom",
       }}
-      open={Boolean(isOpenActionsMenu)}
+      open={Boolean(isActionsMenuOpen)}
       onClose={handleActionsMenu}
       sx={{ mt: 2 }}
     >
