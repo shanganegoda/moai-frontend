@@ -139,7 +139,7 @@ function DashboardNavbar({ absolute, light, isMini, searchBar, addNewTenantBtn }
             {/* Search Bar */}
             <MDBox pr={1}>{searchBar}</MDBox>
             {/* Add tenant */}
-            <MDBox p={2}>
+            <MDBox p={2} mt="auto">
               <Link to="#">{addNewTenantBtn}</Link>
             </MDBox>
 
