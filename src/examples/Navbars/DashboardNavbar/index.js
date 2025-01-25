@@ -54,7 +54,7 @@ import {
   setOpenConfigurator,
 } from "context";
 
-function DashboardNavbar({ absolute, light, isMini }) {
+function DashboardNavbar({ absolute, light, isMini, searchBar, addNewBtn }) {
   const [navbarType, setNavbarType] = useState();
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
@@ -137,17 +137,14 @@ function DashboardNavbar({ absolute, light, isMini }) {
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
             {/* Search Bar */}
-            <MDBox pr={1}>
-              <MDInput label="Search for Tenant" />
-            </MDBox>
-            {/* Add tenant */}
-            <MDBox p={2} mt="auto">
-              <Link to="#">
-                <Button variant="contained" style={{ color: "white" }}>
-                  Add Tenant
-                </Button>
-              </Link>
-            </MDBox>
+            {searchBar && <MDBox pr={1}>{searchBar}</MDBox>}
+
+            {/* Add new tenant button */}
+            {addNewBtn && (
+              <MDBox p={2}>
+                <Link to="#">{addNewBtn}</Link>
+              </MDBox>
+            )}
 
             {/* Other widgets */}
             <MDBox color={light ? "white" : "inherit"}>
@@ -209,6 +206,8 @@ DashboardNavbar.propTypes = {
   absolute: PropTypes.bool,
   light: PropTypes.bool,
   isMini: PropTypes.bool,
+  searchBar: PropTypes.elementType,
+  addNewBtn: PropTypes.elementType,
 };
 
 export default DashboardNavbar;
