@@ -16,12 +16,12 @@ Coded by www.creative-tim.com
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import { Button } from "@mui/material";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
+import MDButton from "components/MDButton";
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -40,9 +40,9 @@ function Tables() {
       <DashboardNavbar
         searchBar={<MDInput label="Search for Tenant" />}
         addNewBtn={
-          <Button variant="contained" style={{ color: "white" }}>
-            Add Tenant
-          </Button>
+          <MDButton variant="gradient" color="info" size="medium">
+            Add Tenants
+          </MDButton>
         }
       />
       <MDBox pt={6} pb={3}>

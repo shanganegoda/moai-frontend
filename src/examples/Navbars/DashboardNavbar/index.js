@@ -54,7 +54,7 @@ import {
   setOpenConfigurator,
 } from "context";
 
-function DashboardNavbar({ absolute, light, isMini, searchBar, addNewBtn }) {
+function DashboardNavbar({ absolute, light, isMini, searchBar, addNewBtn, dropdown }) {
   const [navbarType, setNavbarType] = useState();
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
@@ -136,6 +136,8 @@ function DashboardNavbar({ absolute, light, isMini, searchBar, addNewBtn }) {
         </MDBox>
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
+            {/* Dropdown */}
+            {dropdown && <MDBox>{dropdown}</MDBox>}
             {/* Search Bar */}
             {searchBar && <MDBox pr={1}>{searchBar}</MDBox>}
 
@@ -148,7 +150,7 @@ function DashboardNavbar({ absolute, light, isMini, searchBar, addNewBtn }) {
 
             {/* Other widgets */}
             <MDBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in/basic">
+              <Link to="/profile">
                 <IconButton sx={navbarIconButton} size="small" disableRipple>
                   <Icon sx={iconsStyle}>account_circle</Icon>
                 </IconButton>
@@ -208,6 +210,7 @@ DashboardNavbar.propTypes = {
   isMini: PropTypes.bool,
   searchBar: PropTypes.elementType,
   addNewBtn: PropTypes.elementType,
+  dropdown: PropTypes.elementType,
 };
 
 export default DashboardNavbar;
