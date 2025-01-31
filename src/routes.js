@@ -38,6 +38,11 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
+import TenantPaymentHistory from "layouts/history";
+import AddPayments from "layouts/addPayments";
+
+// @mui icons
+import Icon from "@mui/material/Icon";
 
 // import Billing from "layouts/billing";
 // import RTL from "layouts/rtl";
@@ -45,10 +50,6 @@ import Tables from "layouts/tables";
 // import Profile from "layouts/profile";
 // import SignIn from "layouts/authentication/sign-in";
 // import SignUp from "layouts/authentication/sign-up";
-import TenantPaymentHistory from "layouts/history";
-
-// @mui icons
-import Icon from "@mui/material/Icon";
 
 const routes = [
   {
@@ -70,10 +71,10 @@ const routes = [
   {
     type: "collapse",
     name: "Add Payments",
-    key: "addPayments",
+    key: "add-payments",
     icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/addPayments",
-    component: <Tables />,
+    route: "/add-payments",
+    component: <AddPayments />,
   },
   {
     type: "collapse",
