@@ -40,6 +40,7 @@ import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 import TenantPaymentHistory from "layouts/history";
 import AddPayments from "layouts/addPayments";
+import AddTenants from "layouts/addTenants";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -71,7 +72,7 @@ const routes = [
   {
     type: "collapse",
     name: "Add Payments",
-    key: "add-payments",
+    key: "addPayments",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/add-payments",
     component: <AddPayments />,
@@ -89,8 +90,8 @@ const routes = [
     name: "Add Tenants",
     key: "addTenants",
     icon: <Icon fontSize="small">person</Icon>,
-    route: "/addTenants",
-    component: <Tables />,
+    route: "/add-tenants",
+    component: <AddTenants />,
   },
   // {
   //   type: "collapse",
