@@ -1,6 +1,7 @@
 import React from "react";
 
 import MDBox from "components/MDBox";
+import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 import AddPaymentForm from "./components/addPaymentForm";
 
@@ -34,7 +35,7 @@ const AddPayments = () => {
                     Add Payments
                   </MDTypography>
                 </MDBox>
-                <MDBox py={5} px={10} display="flex" flexDirection="column" width="100%">
+                <MDBox py={5} px={10} display="flex" flexDirection="column">
                   <AddPaymentForm />
                 </MDBox>
               </Card>

@@ -1,54 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 
-import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
-import MDTypography from "components/MDTypography";
 
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Icon from "@mui/material/Icon";
+import AddPaymentDropdown from "./addPaymentDropdown";
+import PaymentCard from "./paymentCard";
 
 const AddPaymentForm = () => {
-  const handleDoneButton = () => {
-    alert("Amount entered");
+  const [state, setState] = useState({
+    isRentChecked: false,
+    isBillChecked: false,
+    rentPayment: { bank: false, cash: false },
+    billPayment: { bank: false, cash: false },
+  });
+
+  const handleCheckboxChange = (field) => {
+    setState((prev) => ({ ...prev, [field]: !prev[field] }));
   };
+
+  const handlePaymentMethod = (type, method) => {
+    setState((prev) => ({
+      ...prev,
+      [type]: {
+        bank: method === "bank" ? !prev[type].bank : false,
+        cash: method === "cash" ? !prev[type].cash : false,
+      },
+    }));
+  };
+
   return (
     <>
-      {/* Name */}
-      <MDInput fullWidth variant="standard" label="Enter Name" sx={{ mb: 3 }} />
+      {/* Select Tenant */}
+      <AddPaymentDropdown />
 
-      {/* Rent/bill */}
-      <MDTypography variant="h6">Payment Type (Rent/ Bill)</MDTypography>
-      <FormGroup row>
-        <FormControlLabel control={<Checkbox name="rent" />} label="Rent" />
-        <FormControlLabel control={<Checkbox name="bill" />} label="Bill" />
-      </FormGroup>
+      {/* Rent Payment Card */}
+      <PaymentCard
+        title="Rent"
+        amountDetails={[{ label: "Rent", amount: 3000 }]}
+        isChecked={state.isRentChecked}
+        handleChange={() => handleCheckboxChange("isRentChecked")}
+        paymentState={state.rentPayment}
+        handlePaymentMethod={(method) => handlePaymentMethod("rentPayment", method)}
+      />
 
-      {/* Amount */}
-      <FormGroup row sx={{ display: "flex", alignItems: "center", gap: 2, width: "100%" }}>
-        <MDInput
-          fullWidth
-          type="number"
-          variant="standard"
-          label="Enter Amount"
-          value="3000"
-          sx={{ flex: 1, my: 2 }}
-        />
-        <MDButton variant="gradient" color="info" size="medium">
-          <Icon>edit</Icon>&nbsp; Edit
-        </MDButton>
-      </FormGroup>
-
-      {/* Bank/Cash */}
-      <FormGroup row>
-        <FormControlLabel control={<Checkbox name="bank" />} label="Bank" />
-        <FormControlLabel control={<Checkbox name="cash" />} label="Cash" />
-      </FormGroup>
-
+      <PaymentCard
+        title="Bill"
+        amountDetails={[
+          { label: "Water Bill", amount: 1490 },
+          { label: "Electricity Bill", amount: 1700 },
+        ]}
+        isChecked={state.isBillChecked}
+        handleChange={() => handleCheckboxChange("isBillChecked")}
+        paymentState={state.billPayment}
+        handlePaymentMethod={(method) => handlePaymentMethod("billPayment", method)}
+      />
       {/* Submit button */}
-      <MDButton variant="gradient" color="info" size="medium" sx={{ mt: 3, width: "100%" }}>
-        Done
+      <MDButton variant="gradient" color="info" size="medium" sx={{ mt: 3, width: "150px" }}>
+        Add Payment
       </MDButton>
     </>
   );
